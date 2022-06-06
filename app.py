@@ -43,7 +43,7 @@ def index():
                 response = form_response(dict_req)
                 species = ['Hernia','Normal','Spondylolisthesis']
                 #return render_template("index.html", response=species[response])
-                return render_template("index.html", response=response)
+                return render_template("index.html", response=response[2:-1] )
         except Exception as e:
             print(e)
             error = {"error": "Something went wrong!! Try again later!"}
