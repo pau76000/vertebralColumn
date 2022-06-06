@@ -38,9 +38,12 @@ def index():
         try:
             if request.form:
                 dict_req = dict(request.form)
+                for dico in dict_req:
+                    dict_req[dico]=int(dict_req[dico])
                 response = form_response(dict_req)
-                species = ['Hernia','Spondylolisthesis','Normal']
-                return render_template("index.html", response=species[response])
+                species = ['Hernia','Normal','Spondylolisthesis']
+                #return render_template("index.html", response=species[response])
+                return render_template("index.html", response=response)
         except Exception as e:
             print(e)
             error = {"error": "Something went wrong!! Try again later!"}
